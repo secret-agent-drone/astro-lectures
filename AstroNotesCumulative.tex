@@ -28,6 +28,21 @@
 \usepackage{cite}
 \usepackage{siunitx}
 
+\newcommand{\exercise}[2]
+{
+\begin{framed}
+\textbf{Exercise:} #1 \\\hrule
+#2
+\end{framed}
+}
+\newcommand{\example}[2]
+{
+\begin{framed}
+\textbf{Example #1:} #2
+\end{framed}
+}
+
+
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -412,13 +427,67 @@ This is the diagram that pllots luminosity against temperature; see figure below
 \includegraphics[width=0.7\textwidth]{images/hr-diagram.png}
 \end{figure}
 
-\subsection{Stellar Spectral Type}
+\subsubsection{Stellar Spectral Type}
 Stars can be divided into classes based on characteristics.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{images/spectral-types.png}
 \end{figure}
+
+\subsection{Stars: Physics}
+We can write down a set of equations whch describe the structure of a star.
+
+\subsubsection{Hydrostatic equilibrium}
+
+\begin{equation}
+\frac{dP}{dr}=-\frac{GM_r \rho}{r^2}=g\rho
+\end{equation}
+Mass $M_r$ is mass enclosed in radius $r$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{images/hydrostatic-1.png}\hspace{1.5cm}
+\includegraphics[width=0.3\textwidth]{images/hydrostatic-2.png}
+\end{figure}
+
+\subsubsection{Mass continuity}
+\begin{equation}
+\frac{dM}{dr}=4\pi r^2\rho
+\end{equation}
+
+\subsubsection{Radiative energy transport}
+Energy can be transported via radiation, convection or conduction. Conduction is only important in white dwarfs and neutron stars. Convection is important in normal stars, but we will only consider radiative transport.
+
+\begin{equation}
+\frac{dT}{dr}=-\frac{3L\kappa\rho}{4\pi r^2 4ac T^3}
+\end{equation}
+
+\subsubsection{Energy conservation}
+$\epsilon(r)$ defined as power produced by unit mass of stellar material. Luminosity produced within a thin shell:
+\begin{align*}
+dL&=\epsilon dM=\epsilon\rho 4 \pi r^2 dr\\
+\Rightarrow \frac{dL}{dr}&=4\pi r^2 \rho\epsilon
+\end{align*}
+
+
+So we have 4 equations and 7 unknowns. Need 4 more equations. We will need 3 further functions - $\epsilon$, $\kappa$, and and equation of state.
+
+\subsubsection{Assumptions}
+\begin{enumerate}
+\item If gas is fully ionised, Thomson scattering is most imprortant interaction; $\sigma=6.7\times\SI{d-25}{cm^2}$
+\item Can estimate number density. See example below.
+\end{enumerate}
+
+\example{1}{
+\begin{align*}
+\frac{M}{V}&=\langle \rho \rangle\\
+V&=\frac{4}{3}\pi r^3\sim 1.4\times \SI{d33}{cm^3}\\
+n&=\frac{\langle \rho \rangle}{m_H}=\frac{\SI{2d33}{g}}{1.4\times\SI{d33}{cm^3}}\frac{1}{1.7\SI{d-24}{g}}\\
+&\sim 8.2\times \SI{d23}{cm^{-3}}\\
+l&=\frac{1}{n\sigma}=\SI{1.8}{cm}
+\end{align*}
+}
 
 
 
